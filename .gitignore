@@ -1,0 +1,7 @@
+/vendor/
+/logs/*
+!/logs/README.md
+/.env
+/.vscode/
+/phinx.yml
+/asset
