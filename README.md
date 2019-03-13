@@ -6,14 +6,7 @@ Add Asset directory(manually) outside src
     .
     ├── asset                   # temp uploaded images/documents
         └── Upload
-                ├── franchiseApplication
-                ├── profileImage
-                ├── CIBI
-                ├── harrisonAssessment
-                ├── GTM
-                ├── interviewSummary
-                ├── siteApplication
-                └── siteAssessmentDocuments
+                └── profileImage
     ├── db                      # for migration
         ├── migrations
         └── seeds
