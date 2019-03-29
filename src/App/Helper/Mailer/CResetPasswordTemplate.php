@@ -8,7 +8,7 @@ class CResetPasswordTemplate
     {
         $this->s3 = new cs3Manger();
     }
-    public function resetTemplate($url,$userInfo)
+    public function resetTemplate($data)
     {
         return '<!doctype html>
                     <html lang="en">
@@ -55,14 +55,11 @@ class CResetPasswordTemplate
                         </head>
                     <body>
                         <div class="card">
-                            <div class="header">
-                            <img  class="emailLogo" src="'.$this->s3->getFile('Jollibee_Foods_Corporation_logo.png').'" alt="Logo goes here" style="height: 30px;">
-                            </div>
                             <div class="cardBody">
                                 <div class="container">
-                                    <p>Dear '.ucfirst(strtolower($userInfo->first_name)).' '.ucfirst(strtolower($userInfo->last_name)).',</p>
+                                    <p>Dear '.ucfirst(strtolower($data['first_name'])).' '.ucfirst(strtolower($data['last_name'])).',</p>
                                     <div class="body">
-                                        <p>We received a request to reset your account password. To proceed, redirect to this URL to reset your password. <a href="' . $url . '">Reset Password URL</a></p>
+                                        <p>We received a request to reset your account password. To proceed, redirect to this URL to reset your password. <a href="' . $data['url'] . '">Reset Password URL</a></p>
                                         <br>
                                         <p>The password reset link will expire within 24 hours.</p>
                                         <p><a href="http://franchising-uat.jfcgrp.com/#/login">JFC Franchising URL</a></p>

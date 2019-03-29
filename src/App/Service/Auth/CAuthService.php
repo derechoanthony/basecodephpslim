@@ -216,7 +216,11 @@ class CAuthService extends BaseService
         if (!$this->isLocal()) {
             $encryption = $user_id.'+'.$dataEncryption;
             $url = env("CHANGE_PASSWORD_URL") . $this->ciper->cipher(CCommon::ENCRYPT, $encryption) . '';
-            $mailer = new CMailer($user['email'], $url, 'reset');
+            $mailer = new CMailer([
+                "emailAddress" => $user['email'],
+                "mode" => "reset",
+                "content" => ["url"=>$url,"first_name"=>"test","last_name"=>"last_name"]
+            ]);
             $isEmailSend = $mailer->composeMessage();
 
             if (!$isEmailSend) {
